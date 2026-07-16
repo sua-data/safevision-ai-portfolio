@@ -400,7 +400,7 @@ def get_dashboard_data():
         # 최근 발생한 이벤트 5건 조회
         recent_sql = text("""
             SELECT
-                DATE_FORMAT(e.detected_at, '%H:%i:%s') AS time,
+                DATE_FORMAT(e.detected_at, '%Y-%m-%d %H:%i:%s') AS time,
                 c.cctv_name AS cctv,
                 e.violation_type AS violation,
                 e.risk_level AS riskLevel,

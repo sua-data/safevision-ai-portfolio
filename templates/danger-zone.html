@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>위험구역 설정</title>
+
+  <link rel="stylesheet" href="../static/css/common.css" />
+  <link rel="stylesheet" href="../static/css/sidebar.css" />
+  <link rel="stylesheet" href="../static/css/danger-zone.css" />
+</head>
+<body>
+  <div id="sidebar-container"></div>
+
+  <main class="main">
+    <h1>위험구역 설정</h1>
+
+    <div class="zone-tabs">
+      <a href="/danger-zone" class="zone-tab active">지정</a>
+      <a href="/danger-zone-manage" class="zone-tab">관리</a>
+    </div>
+
+    <section class="zone-card">
+      <div class="zone-toolbar">
+        <label for="cctvSelect">CCTV 선택</label>
+
+        <select id="cctvSelect">
+          <option value="">CCTV 선택</option>
+        </select>
+
+        <button type="button" id="searchBtn">검색</button>
+      </div>
+
+      <div class="zone-content">
+        <div class="video-area">
+          <div id="zoneCanvas" class="zone-canvas">
+            <img id="zoneVideo" class="zone-video hidden" alt="CCTV 영상" />
+            <div id="zonePlaceholder" class="zone-placeholder">
+              CCTV를 선택한 후 검색 버튼을 눌러주세요.
+            </div>
+          </div>
+          <div class="guide-box">
+            <img src="../static/img/light.svg" alt="안내" class="light-icon">
+            <div>
+              <p>마우스로 드래그하여 위험구역을 설정하세요.</p>
+              <p>사각형 영역의 4개 꼭짓점을 드래그하여 크기를 조절할 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="zone-panel">
+          <h2>위험구역 정보</h2>
+
+          <label for="zoneName" class="field-label">구역 이름</label>
+          <input
+            type="text"
+            id="zoneName"
+            class="zone-name-input"
+            placeholder="위험구역 1"
+          />
+
+          <hr />
+
+          <h3>좌표 정보</h3>
+
+          <div class="coord-row">
+            <label for="x1">X1</label>
+            <input type="number" id="x1" />
+            <span>px</span>
+          </div>
+
+          <div class="coord-row">
+            <label for="y1">Y1</label>
+            <input type="number" id="y1" />
+            <span>px</span>
+          </div>
+
+          <div class="coord-row">
+            <label for="x2">X2</label>
+            <input type="number" id="x2" />
+            <span>px</span>
+          </div>
+
+          <div class="coord-row">
+            <label for="y2">Y2</label>
+            <input type="number" id="y2" />
+            <span>px</span>
+          </div>
+          
+          
+          <div class="info-box">
+            <img src="../static/img/information.svg" alt="안내" class="zone-help-icon">
+            좌표는 CCTV 화면 기준 픽셀(px) 값입니다.<br />
+            저장 후 진입 감지 기준으로 사용됩니다.
+          </div>
+
+          <div class="zone-actions">
+            <button type="button" class="reset-btn" id="resetBtn">다시 그리기</button>
+            <button type="button" class="save-btn" id="saveBtn">저장</button>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <script src="../static/js/sidebar.js"></script>
+  <script src="../static/js/common.js"></script>
+  <script src="../static/js/danger-zone.js"></script>
+</body>
+</html>

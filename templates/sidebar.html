@@ -1,0 +1,51 @@
+<aside class="sidebar">
+  <div class="logo">
+    <img src="../static/img/logo.svg" alt="SafeVision AI" class="brand-icon">
+
+    <span class="logo-text">
+      SafeVision <strong>AI</strong>
+    </span>
+  </div>
+
+  <nav class="menu">
+    <a href="/dashboard" class="menu-item" data-page="dashboard">
+      <img src="../static/img/dashboard.svg" alt="" class="menu-icon">
+      <span>대시보드</span>
+    </a>
+
+    <a href="/monitoring" class="menu-item" data-page="monitoring">
+      <img src="../static/img/monitoring.svg" alt="" class="menu-icon">
+      <span>실시간 모니터링</span>
+    </a>
+
+    <a href="/event-log" class="menu-item" data-page="event-log">
+      <img src="../static/img/event-log.svg" alt="" class="menu-icon">
+      <span>이벤트 로그</span>
+    </a>
+
+    <a href="/statistics" class="menu-item" data-page="statistics">
+      <img src="../static/img/statistics.svg" alt="" class="menu-icon">
+      <span>통계 분석</span>
+    </a>
+
+    <a href="/danger-zone" class="menu-item" data-page="danger-zone">
+      <img src="../static/img/danger-zone.svg" alt="" class="menu-icon">
+      <span>위험구역 설정</span>
+    </a>
+
+    <a href="/cctv-manage" class="menu-item" data-page="cctv-manage">
+      <img src="../static/img/cctv-camera.svg" alt="" class="menu-icon">
+      <span>CCTV 관리</span>
+    </a>
+
+  </nav>
+  <button
+    type="button"
+    class="logout-item"
+    id="logoutBtn"
+    onclick="sessionStorage.removeItem('isLogin'); location.href='/login';"
+  >
+    <img src="../static/img/logout-icon.svg" alt="" class="logout-icon">
+    <span>로그아웃</span>
+  </button>
+</aside>

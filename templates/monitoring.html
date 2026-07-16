@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>실시간 모니터링</title>
+
+  <link rel="stylesheet" href="../static/css/common.css" />
+  <link rel="stylesheet" href="../static/css/sidebar.css" />
+  <link rel="stylesheet" href="../static/css/monitoring.css" />
+</head>
+<body>
+  <div id="sidebar-container"></div>
+
+  <main class="main">
+    <h1>실시간 모니터링</h1>
+
+    <section class="monitor-card">
+      <div class="monitor-toolbar">
+        <label for="cctvSelect">전체 CCTV</label>
+
+        <select id="cctvSelect">
+          <option value="">전체 CCTV</option>
+        </select>
+
+        <button id="searchBtn" type="button">검색</button>
+      </div>
+
+      <div class="video-box" id="videoBox">
+
+        <!-- 단일 CCTV -->
+        <div id="singleVideoView">
+            <div id="videoPlaceholder" class="video-placeholder">
+                CCTV를 선택하세요.
+            </div>
+
+            <img id="cctvVideo"
+                class="cctv-video hidden"
+                alt="실시간 CCTV">
+
+            <button id="fullscreenBtn"
+                    class="fullscreen-btn"
+                    type="button"
+                    title="전체보기">
+                <img src="../static/img/full-view.svg" alt="전체보기">
+            </button>
+          </div>
+
+          <!-- 전체 CCTV -->
+          <div id="videoGrid"
+              class="video-grid hidden">
+          </div>
+
+      </div>
+    </section>
+
+    <section class="status-area">
+      <div class="risk-card">
+        <div class="risk-left">
+          <p>현재 위험도</p>
+          <strong id="currentRiskLevel">-</strong>
+          <span id="currentRiskText">-</span>
+        </div>
+
+        <div class="risk-divider"></div>
+
+        <div class="risk-right">
+          <p>위험도 점수</p>
+          <strong id="riskScore">-</strong>
+        </div>
+      </div>
+
+      <div class="violation-card">
+        <h2>위반 현황</h2>
+
+        <ul>
+          <li>
+            <span>안전모 미착용</span>
+            <strong id="helmetViolation">-</strong>
+          </li>
+
+          <li>
+            <span>안전조끼 미착용</span>
+            <strong id="vestViolation">-</strong>
+          </li>
+
+          <li>
+            <span>위험구역 진입</span>
+            <strong id="zoneViolation">-</strong>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <div id="riskAlertToast" class="risk-alert-toast">
+    <img id="riskAlertIcon" src="" alt="위험 알림" />
+    <div>
+      <strong id="riskAlertLevel">WARNING</strong>
+      <p id="riskAlertMessage">위험 상황이 감지되었습니다.</p>
+    </div>
+  </div>
+
+  <!-- 전체보기 모달 -->
+  <div id="fullscreenModal" class="fullscreen-modal">
+    <div class="fullscreen-content">
+      <button id="closeFullscreenBtn" class="close-fullscreen-btn" type="button">×</button>
+      <img id="fullscreenVideo" class="fullscreen-video" alt="전체 CCTV 영상">
+    </div>
+  </div>
+
+  <script src="../static/js/sidebar.js"></script>
+  <script src="../static/js/common.js"></script>
+  <script src="../static/js/monitoring.js"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>통계 대시보드</title>
+
+  <link rel="stylesheet" href="../static/css/common.css" />
+  <link rel="stylesheet" href="../static/css/sidebar.css" />
+  <link rel="stylesheet" href="../static/css/statistics.css?v=20" />
+</head>
+<body>
+  <div id="sidebar-container"></div>
+
+  <main class="main">
+    <h1>통계 대시보드</h1>
+
+    <section class="top-card">
+      <div class="filter-box">
+        <label>기간 선택</label>
+        <input type="date" id="startDate" />
+        <span>~</span>
+        <input type="date" id="endDate" />
+        <button id="searchBtn">검색</button>
+      </div>
+
+      <div class="summary-box">
+        <div class="summary-card">
+          <p>감지 작업자 수</p>
+          <strong id="totalCount">-</strong>
+        </div>
+
+        <div class="summary-card">
+          <p>위험 발생 건수</p>
+          <strong id="warningCount">-</strong>
+        </div>
+
+        <div class="summary-card">
+          <p>PPE 착용률</p>
+          <strong id="ppeRate">-</strong>
+        </div>
+
+        <div class="summary-card">
+          <p>평균 위험 점수</p>
+          <strong id="riskScore">-</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="chart-area">
+      <div class="chart-card">
+        <h2>시간대별 위험 이벤트</h2>
+        <div class="chart-box">
+            <canvas id="hourlyChart"></canvas>
+        </div>
+        </div>
+
+        <div class="chart-card">
+        <h2>위험 유형별 비율</h2>
+
+        <div class="donut-wrap">
+            <div class="donut-box">
+            <canvas id="typeChart"></canvas>
+            </div>
+            <ul id="typeLegend"></ul>
+        </div>
+        </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="../static/js/statistics.js"></script>
+</body>
+</html>

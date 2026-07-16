@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>위험구역 관리</title>
+
+  <link rel="stylesheet" href="../static/css/common.css" />
+  <link rel="stylesheet" href="../static/css/sidebar.css" />
+  <link rel="stylesheet" href="../static/css/danger-zone-manage.css" />
+</head>
+<body>
+  <div id="sidebar-container"></div>
+
+  <div id="zonePreviewModal" class="zone-modal">
+    <div class="zone-modal-content">
+      <div class="zone-modal-header">
+        <h3>위험구역 미리보기</h3>
+        <button type="button" onclick="closeZonePreview()">×</button>
+      </div>
+
+      <div id="zonePreviewBox" class="zone-preview-box">
+        <img id="zonePreviewVideo" src="" alt="CCTV 화면" />
+        <div id="zonePreviewRect" class="zone-preview-rect"></div>
+      </div>
+    </div>
+  </div>
+
+  <main class="main">
+    <h1>위험구역 설정</h1>
+
+    <div class="zone-tabs">
+      <a href="/danger-zone" class="zone-tab">지정</a>
+      <a href="/danger-zone-manage" class="zone-tab active">관리</a>
+    </div>
+
+    <section class="manage-card">
+      <h2>CCTV 목록</h2>
+
+      <table class="zone-table">
+        <thead>
+          <tr>
+            <th>CCTV ID</th>
+            <th>CCTV명</th>
+            <th>위험구역 명</th>
+            <th>좌표값</th>
+            <th>최신 수정일</th>
+            <th>관리</th>
+          </tr>
+        </thead>
+        <tbody id="zoneTableBody"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="../static/js/sidebar.js"></script>
+  <script src="../static/js/common.js"></script>
+  <script src="../static/js/danger-zone-manage.js"></script>
+</body>
+</html>

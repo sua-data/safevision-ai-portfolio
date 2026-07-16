@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>이벤트 로그</title>
+
+  <link rel="stylesheet" href="../static/css/common.css" />
+  <link rel="stylesheet" href="../static/css/sidebar.css" />
+  <link rel="stylesheet" href="../static/css/event-log.css?v=10" />
+</head>
+<body>
+  <div id="sidebar-container"></div>
+
+  <main class="main">
+    <h1>이벤트 로그</h1>
+
+    <section class="card">
+      <div class="filter-box">
+        <label>기간 선택</label>
+        <input type="date" id="startDate" />
+        <span>~</span>
+        <input type="date" id="endDate" />
+
+        <label>CCTV 선택</label>
+        <select id="cctvSelect">
+          <option value="all">전체 CCTV</option>
+          <option value="cctv01">1번 CCTV</option>
+          <option value="cctv02">2번 CCTV</option>
+          <option value="cctv03">3번 CCTV</option>
+        </select>
+
+        <button id="searchBtn">검색</button>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>번호</th>
+            <th>시간</th>
+            <th>CCTV</th>
+            <th>위반 유형</th>
+            <th>위험도</th>
+            <th>처리 상태</th>
+            <th>상세보기</th>
+          </tr>
+        </thead>
+        <tbody id="eventTableBody"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <div class="modal" id="detailModal">
+    <div class="modal-card">
+      <h2>이벤트 상세</h2>
+
+      <div class="capture-box">
+        <div id="capturePlaceholder" class="capture-placeholder">
+          캡처 이미지
+        </div>
+
+        <img id="captureImage" class="capture-image hidden" alt="이벤트 캡처 이미지">
+
+        <button id="imageFullscreenBtn" class="image-fullscreen-btn" type="button" title="전체보기">
+          <img src="../static/img/full-view.svg" alt="전체보기">
+        </button>
+      </div>
+
+      <div class="detail-content">
+        <div class="detail-left">
+          <h3>이벤트 정보</h3>
+
+          <div class="info-row">
+            <span>발생 시간</span>
+            <strong id="detailTime"></strong>
+          </div>
+
+          <div class="info-row">
+            <span>CCTV</span>
+            <strong id="detailCctv"></strong>
+          </div>
+
+          <div class="info-row">
+            <span>위반 유형</span>
+            <strong id="detailType"></strong>
+          </div>
+
+          <div class="info-row">
+            <span>위험도</span>
+            <strong id="detailRisk"></strong>
+          </div>
+        </div>
+
+        <div class="detail-right">
+          <div class="form-row">
+            <label>처리 상태</label>
+            <select id="statusSelect">
+              <option>미확인</option>
+              <option>확인</option>
+              <option>조치완료</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label>메모</label>
+            <textarea id="memoInput" placeholder="메모를 입력하세요"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-buttons">
+        <button id="saveBtn">저장</button>
+        <button id="closeBtn">목록으로</button>
+      </div>
+    </div>
+  </div>
+  <div id="imageFullscreenModal" class="image-fullscreen-modal">
+    <div class="image-fullscreen-content">
+      <button id="closeImageFullscreenBtn" class="close-image-fullscreen-btn" type="button">×</button>
+      <img id="fullscreenCaptureImage" class="fullscreen-capture-image" alt="이벤트 캡처 확대 이미지">
+    </div>
+  </div>
+  <script src="../static/js/event-log.js"></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>CCTV 관리</title>
+
+  <link rel="stylesheet" href="../static/css/common.css" />
+  <link rel="stylesheet" href="../static/css/sidebar.css" />
+  <link rel="stylesheet" href="../static/css/cctv-manage.css" />
+</head>
+<body>
+  <div id="sidebar-container"></div>
+
+  <main class="main">
+    <div class="page-header">
+      <div>
+        <h1>CCTV 관리</h1>
+        <p>CCTV 등록 정보와 사용 상태를 관리합니다.</p>
+      </div>
+
+      <button class="primary-btn" id="openAddModalBtn">CCTV 등록</button>
+    </div>
+
+    <section class="summary-grid">
+      <div class="summary-card">
+        <span>전체 CCTV</span>
+        <strong id="totalCount">0</strong>
+      </div>
+
+      <div class="summary-card">
+        <span>사용 중</span>
+        <strong id="activeCount">0</strong>
+      </div>
+
+      <div class="summary-card">
+        <span>미사용</span>
+        <strong id="inactiveCount">0</strong>
+      </div>
+    </section>
+
+    <section class="content-card">
+      <div class="table-toolbar">
+        <div>
+          <h2>CCTV 목록</h2>
+          <p>설치 위치, 스트리밍 주소, 사용 여부를 확인합니다.</p>
+        </div>
+
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="CCTV명 또는 위치 검색" />
+          <button id="searchBtn">검색</button>
+        </div>
+      </div>
+      <div class="table-scroll">
+        <table class="cctv-table">
+          <thead>
+            <tr>
+              <th>CCTV ID</th>
+              <th>CCTV명</th>
+              <th>설치 위치</th>
+              <th>스트리밍 주소</th>
+              <th>상태</th>
+              <th>등록일</th>
+              <th>관리</th>
+            </tr>
+          </thead>
+          <tbody id="cctvTableBody">
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal-backdrop" id="cctvModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="modalTitle">CCTV 등록</h2>
+        <button class="close-btn" id="closeModalBtn">×</button>
+      </div>
+
+      <form id="cctvForm">
+        <input type="hidden" id="formMode" value="add" />
+
+        <label>
+          CCTV ID
+          <input type="text" id="cctvId" placeholder="예: cctv04" required />
+        </label>
+
+        <label>
+          CCTV명
+          <input type="text" id="cctvName" placeholder="예: CCTV-04" required />
+        </label>
+
+        <label>
+          설치 위치
+          <input type="text" id="location" placeholder="예: 1층 출입구" />
+        </label>
+
+        <label>
+          스트리밍 주소
+          <input type="text" id="streamUrl" placeholder="예: /api/video-feed/cctv04" />
+        </label>
+
+        <label>
+          사용 여부
+          <select id="isActive">
+            <option value="1">사용</option>
+            <option value="0">미사용</option>
+          </select>
+        </label>
+
+        <div class="modal-actions">
+          <button type="button" class="secondary-btn" id="cancelBtn">취소</button>
+          <button type="submit" class="primary-btn">저장</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="../static/js/sidebar.js"></script>
+  <script src="../static/js/common.js"></script>
+  <script src="../static/js/cctv-manage.js"></script>
+</body>
+</html>

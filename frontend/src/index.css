@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  min-width: 1200px;
+  font-family:
+    Arial,
+    "Noto Sans KR",
+    sans-serif;
+}
+
+.app-layout {
+  min-height: 100vh;
+  background: #f4f7fa;
+}
+
+.app-layout > .main {
+  min-height: 100vh;
+  margin-left: 245px;
+}

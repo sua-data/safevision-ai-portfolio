@@ -1,0 +1,314 @@
+.main {
+  flex: 1;
+  min-width: 0;
+  min-height: 100vh;
+  margin-left: 245px;
+  padding: 34px 48px 36px;
+  background: #f4f7fa;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.page-header h1 {
+  margin: 0 0 34px;
+  font-size: 36px;
+  font-weight: 800;
+  color: #1f2937;
+  letter-spacing: -1px;
+}
+
+.page-header p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.page-header .primary-btn {
+  width: 96px;
+  height: 38px;
+  padding: 0;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.cctv-summary-card {
+  height: 92px;
+  padding: 18px 22px;
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 3px 8px rgba(15, 23, 42, 0.06);
+}
+
+.cctv-summary-card span {
+  display: block;
+  color: #6b7280;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.cctv-summary-card strong {
+  display: block;
+  font-size: 27px;
+  font-weight: 900;
+  line-height: 1;
+  color: #03A94D;
+}
+
+.content-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 22px 24px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+.table-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.table-toolbar h2 {
+  margin: 0;
+  font-size: 20px;
+  color: #1f2937;
+}
+
+.table-toolbar p {
+  margin: 6px 0 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.search-box {
+  display: flex;
+  gap: 8px;
+}
+
+.search-box input {
+  width: 240px;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  outline: none;
+}
+
+.search-box input:focus {
+  border-color: #22c55e;
+}
+
+.cctv-page button {
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.primary-btn {
+  padding: 11px 16px;
+  background: #16a34a;
+  color: #ffffff;
+  border-radius: 10px;
+}
+
+.secondary-btn {
+  padding: 11px 16px;
+  background: #f3f4f6;
+  color: #374151;
+  border-radius: 10px;
+}
+
+.search-box button {
+  padding: 10px 14px;
+  background: #111827;
+  color: #ffffff;
+  border-radius: 10px;
+}
+
+.cctv-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.cctv-table th {
+  height: 44px;
+  padding: 0 12px;
+  background: #f8fafc;
+  color: #1f2937;
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 1.3;
+  text-align: center;
+  vertical-align: middle;
+  border-bottom: 1px solid #d1d5db;
+}
+
+.cctv-table td {
+  height: 58px;
+  padding: 0 12px;
+  border-bottom: 1px solid #edf0f3;
+  color: #111827;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.cctv-table tbody tr:hover {
+  background: #f9fafb;
+}
+
+.cctv-table th:last-child,
+.cctv-table td:last-child {
+  text-align: center;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.status-active {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.status-inactive {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.action-btns {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.edit-btn,
+.delete-btn {
+  width: 44px;
+  height: 30px;
+  padding: 0;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.edit-btn {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.delete-btn {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.modal-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 24, 39, 0.45);
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-backdrop.active {
+  display: flex;
+}
+
+.cctv-modal {
+  width: 460px;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.close-btn {
+  background: transparent;
+  font-size: 26px;
+  color: #6b7280;
+}
+
+#cctvForm {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+#cctvForm label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  color: #374151;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+#cctvForm input,
+#cctvForm select {
+  padding: 11px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  outline: none;
+}
+
+#cctvForm input:focus,
+#cctvForm select:focus {
+  border-color: #22c55e;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.table-scroll {
+  max-height: 510px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.cctv-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: #f8fafc;
+}

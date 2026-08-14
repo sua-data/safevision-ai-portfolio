@@ -17,6 +17,8 @@ PPE 미착용 또는 위험구역 진입 상황이 발생하면 위험도 점수
 
 본 프로젝트는 3인 팀 프로젝트로 진행했으며, 저는 **실시간 영상 프레임 처리, AI 감지 결과 구조화, FastAPI 및 Flask 기반 서비스 연동**을 담당했습니다.
 
+이후 개인 포트폴리오 버전에서는 기존 Flask/Jinja 기반 화면을 **React + Vite 기반 SPA 구조로 전환**하고, 기존 FastAPI·Flask API와 연동하여 프론트엔드 구조를 개선했습니다.
+
 ---
 
 ## 2. 기획 배경
@@ -122,11 +124,15 @@ YOLO Pose
     MariaDB         Capture Image
         │
         ▼
- Flask Web Server
+ FastAPI / Flask API
+        │
+        ▼
+ React + Vite Frontend
         │
         ▼
 Dashboard / Monitoring
 Event Log / Statistics
+Danger Zone / CCTV Management
 ```
 
 ---
@@ -222,6 +228,18 @@ DANGER 이상인 경우 이벤트 로그와 캡처 이미지를 저장하며, �
 - 로그인, 대시보드, 모니터링 및 CCTV 관리 화면 연동
 - 감지 결과와 MariaDB 저장 흐름 확인
 - 기능 통합 테스트 및 오류 수정
+
+### React 기반 Frontend 전환
+
+- 기존 Flask/Jinja 템플릿 기반 화면을 React 컴포넌트 구조로 전환
+- Vite 기반 Frontend 개발 환경 구성
+- React Router를 이용한 SPA 라우팅 적용
+- 공통 Sidebar를 React 컴포넌트로 분리
+- Dashboard, Monitoring, Event Log, Statistics, Danger Zone, CCTV Management 화면 React 전환
+- Fetch API를 이용해 기존 Flask/FastAPI API와 연동
+- Chart.js와 react-chartjs-2를 이용한 통계 시각화 구현
+- Canvas 기반 위험구역 지정 기능 React로 이전
+- 기존 페이지별 CSS를 React 환경에 맞게 정리하고 전역 스타일 충돌 수정
 
 ---
 
@@ -335,11 +353,15 @@ CCTV별 최신 감지 상태를 메모리에 저장하고, 모니터링 화면�
 
 ### Frontend
 
-- HTML
-- CSS
+- React
+- Vite
+- React Router DOM
 - JavaScript
+- HTML5
+- CSS3
 - Fetch API
 - Chart.js
+- react-chartjs-2
 
 ### Tools
 
@@ -456,6 +478,20 @@ API 기본 주소와 화면 요청 구조를 정리하고, Flask 화면에서 Fa
 
 감지 결과 생성부터 위험도 계산, 캡처 이미지 경로와 이벤트 로그 저장까지의 데이터 흐름을 단계별로 확인하고 통합 테스트했습니다.
 
+### 13.6 Flask/Jinja 화면의 React SPA 전환
+
+기존 서비스는 Flask/Jinja 템플릿과 페이지별 JavaScript로 구성되어 있어 화면 간 공통 요소를 재사용하기 어렵고, 페이지 이동마다 서버 라우팅에 의존하는 구조였습니다.
+
+개인 포트폴리오 버전에서는 주요 화면을 React 컴포넌트로 전환하고 React Router를 이용해 SPA 방식으로 구성했습니다.
+
+기존 백엔드 API 구조는 유지하면서 Vite Proxy를 통해 React 개발 서버에서 Flask API와 정적 리소스에 접근하도록 구성했습니다.
+
+### 13.7 React 전환 과정의 CSS 충돌 해결
+
+기존 서비스에서는 각 HTML 페이지가 자신의 CSS 파일만 불러왔지만, React SPA에서는 여러 페이지의 CSS가 하나의 애플리케이션에 함께 로드되면서 `.summary-card`, `.modal`, `table`, `button`과 같은 공통 클래스가 서로 영향을 주는 문제가 발생했습니다.
+
+페이지별 전용 클래스와 상위 페이지 클래스를 적용해 스타일 범위를 분리하고, Dashboard, Statistics, CCTV 관리, Event Log 화면 간 CSS 충돌을 수정했습니다.
+
 ---
 
 ## 14. 프로젝트를 통해 배운 점
@@ -475,6 +511,12 @@ AI 모델의 추론 결과를 화면에 표시하는 것에서 끝나지 않고 
 ### 디버깅 및 통합 테스트
 
 각 모듈이 개별적으로 동작하더라도 전체 서비스 흐름에서 데이터가 정상적으로 전달되는지 확인해야 한다는 점을 경험했습니다.
+
+### React 기반 SPA 구조 전환
+
+기존 서버 렌더링 방식의 화면을 React SPA로 전환하면서 컴포넌트 단위 화면 구성, 상태 관리, React Router 기반 라우팅과 API 연동 방식을 경험했습니다.
+
+또한 기존 페이지별 CSS를 SPA 환경에서 그대로 사용할 경우 전역 스타일 충돌이 발생할 수 있다는 점을 확인하고, 페이지별 스타일 범위를 분리하여 문제를 해결했습니다.
 
 ---
 
@@ -535,6 +577,6 @@ AI 모델의 추론 결과를 화면에 표시하는 것에서 끝나지 않고 
 
 - 프로젝트 유형: 3인 팀 프로젝트
 - 진행 기간: 2026.07
-- 담당 역할: 실시간 감지 및 서비스 연동
+- 담당 역할: 실시간 감지, 서비스 연동 및 개인 포트폴리오 버전 React Frontend 전환
 - GitHub: [github.com/sua-data](https://github.com/sua-data)
 - Email: [suai8402@gmail.com](mailto:suai8402@gmail.com)

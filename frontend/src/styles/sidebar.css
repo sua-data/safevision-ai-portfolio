@@ -1,0 +1,146 @@
+:root {
+  --sidebar-bg: #ffffff;
+  --sidebar-text: #374151;
+  --sidebar-title: #1f2937;
+  --main-green: #03a94d;
+  --active-bg: rgba(3, 169, 77, 0.12);
+  --hover-bg: rgba(3, 169, 77, 0.08);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 실제 사이드바 */
+.sidebar {
+  width: 245px;
+  min-width: 245px;
+  max-width: 245px;
+  height: 100vh;
+  background-color: var(--sidebar-bg);
+  border-right: 1px solid #e5e7eb;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+  padding-top: 24px;
+  padding-bottom: 34px;
+  flex-shrink: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  z-index: 1000;
+  overflow: hidden;
+}
+
+/* 상단 로고 영역 */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 18px;
+  margin-bottom: 38px;
+  white-space: nowrap;
+}
+
+.brand-icon {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+}
+
+.logo-text {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--sidebar-title);
+  letter-spacing: -0.6px;
+  white-space: nowrap;
+}
+
+.logo-text strong {
+  color: var(--main-green);
+}
+
+/* 메뉴 */
+.menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  height: 50px;
+  padding-left: 28px;
+  text-decoration: none;
+  color: var(--sidebar-text);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.menu-icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+/* 기본 아이콘 색 */
+.menu-item:not(.active) .menu-icon {
+  filter: brightness(0) saturate(100%) invert(22%) sepia(13%)
+    saturate(705%) hue-rotate(179deg) brightness(96%) contrast(91%);
+}
+
+/* 활성 메뉴 */
+.menu-item.active {
+  background-color: var(--active-bg);
+  color: var(--main-green);
+}
+
+.menu-item.active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background-color: var(--main-green);
+}
+
+/* 활성 아이콘 색 */
+.menu-item.active .menu-icon {
+  filter: brightness(0) saturate(100%) invert(46%) sepia(97%)
+    saturate(1042%) hue-rotate(114deg) brightness(92%) contrast(98%);
+}
+
+/* hover */
+.menu-item:hover {
+  background-color: var(--hover-bg);
+}
+
+
+/* 로그아웃 */
+.logout-item {
+  margin-top: auto;
+  margin-left: 25px;
+  margin-right: 25px;
+
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  height: 20px;
+
+  border: none;
+  background: transparent;
+  color: #374151;
+
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}

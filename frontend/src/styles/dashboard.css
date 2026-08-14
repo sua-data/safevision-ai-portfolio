@@ -1,0 +1,204 @@
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f4f7fa;
+  color: #1f2937;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+  min-height: 100vh;
+  margin-left: 245px;
+  padding: 34px 48px 36px;
+  background: #f4f7fa;
+}
+
+.main h1 {
+  margin: 0 0 36px;
+  font-size: 36px;
+  font-weight: 800;
+  color: #1f2937;
+  letter-spacing: -1px;
+}
+
+/* 상단 요약 카드 */
+.dashboard-summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  margin-bottom: 30px;
+}
+
+.dashboard-summary-card {
+  height: 190px;
+  padding: 28px 32px;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.12);
+}
+
+.dashboard-summary-card p {
+  margin: 0 0 14px;
+  font-size: 16px;
+  font-weight: 800;
+  color: #8b8b8b;
+}
+
+.dashboard-summary-card > strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 48px;
+  font-weight: 800;
+  color: #111827;
+  letter-spacing: -1px;
+}
+
+.dashboard-summary-card > span {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  color: #8b8b8b;
+}
+
+.dashboard-summary-card > span strong,
+.dashboard-summary-card > span.plus {
+  color: #111827;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+/* 전체 안전 상태 카드 */
+.safety-status {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.safety-icon {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.safety-status strong {
+  display: block;
+  font-size: 30px;
+  font-weight: 900;
+  color: #03a94d;
+  white-space: nowrap;
+}
+
+.safety-status > div {
+  min-width: 0;
+}
+
+.safety-status span {
+  display: block;
+  margin-top: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #6b7280;
+  white-space: nowrap;
+}
+
+/* 최근 이벤트 카드 */
+.event-card {
+  min-height: 0;
+  padding: 28px 32px 34px;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.12);
+}
+
+.event-card h2 {
+  margin: 0 0 24px;
+  font-size: 24px;
+  font-weight: 800;
+  color: #111827;
+}
+
+/* 테이블 */
+.event-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.event-table th {
+  height: 38px;
+  border: 1px solid #d1d5db;
+  background: #f3f3f3;
+  color: #111827;
+}
+
+.event-table td {
+  height: 44px;
+  border-bottom: 1px solid #d1d5db;
+  border-right: 1px solid #d1d5db;
+  color: #111827;
+}
+
+.event-table td:first-child {
+  border-left: none;
+}
+
+.event-table th:first-child,
+.event-table td:first-child {
+  width: 22%;
+}
+
+.event-table th:nth-child(2),
+.event-table td:nth-child(2) {
+  width: 15%;
+}
+
+.event-table th:nth-child(3),
+.event-table td:nth-child(3) {
+  width: 25%;
+}
+
+.event-table th:nth-child(4),
+.event-table td:nth-child(4) {
+  width: 23%;
+}
+
+.event-table th:nth-child(5),
+.event-table td:nth-child(5) {
+  width: 15%;
+}
+
+/* 위험도 색상 */
+.level-safe {
+  color: #03a94d !important;
+  font-weight: 900;
+}
+
+.level-warning {
+  color: #f59e0b !important;
+  font-weight: 900;
+}
+
+.level-danger {
+  color: #ff3333 !important;
+  font-weight: 900;
+}
+
+.level-critical {
+  color: #8b1515 !important;
+  font-weight: 900;
+}
+
+.status-done {
+  color: #027a38 !important;
+  font-weight: 900;
+}
+
+.status-pending {
+  color: #111827 !important;
+  font-weight: 800;
+}
